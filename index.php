@@ -1,3 +1,6 @@
+<?php
+include "includes/autoloader.inc.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +10,7 @@
     <title>Biblioteka</title>
 </head>
 <body>
-    
+<h1><a href='<?= $_SERVER['PHP_SELF']; ?>'>Biblioteka</a></h1>
+    <?php Route::loadView(); ?>
 </body>
 </html>
