@@ -9,4 +9,13 @@ class Books extends Dbh{
         $results = $stmt->fetchAll();
         return $results;
     }
+
+    protected function getBorrowedBooks($id){
+        $sql = "SELECT users_id, return_date FROM users_books INNER JOIN users ON `users_books`.`users_id` = `users`.`id` INNER JOIN books ON `users_books`.`books_id` = `books`.`id` WHERE books_id = ?;";
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute([$id]);
+
+        $result = $stmt->fetchAll();
+        return $result;
+    }
 }

@@ -1,16 +1,12 @@
 <?php
 
 class User extends Dbh{
-    public $name;
-    public $surname;
-    public $address;
+    public function getUsersBorrowed($id){
+        $sql = "SELECT `books`.`title` AS title, return_date, penelty FROM users_books INNER JOIN users ON `users_books`.`users_id` = `users`.`id` INNER JOIN books ON `users_books`.`books_id` = `books`.`id` WHERE users_id = ?;";
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute([$id]);
 
-    public function userData($id){
-        $auth = new Auth;
-        $user = $auth->getUser($id);
-
-        $this->name = $user[0]['name'];
-        $this->surname = $user[0]['surname'];
-        $this->address = $user[0]['address'];
+        $books = $stmt->fetchAll();
+        return $books;
     }
 }

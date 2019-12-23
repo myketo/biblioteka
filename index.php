@@ -11,7 +11,9 @@ session_start();
     <title>Biblioteka</title>
 </head>
 <body>
-<h1><a href='<?= $_SERVER['PHP_SELF']; ?>'>Biblioteka</a></h1>
-    <?php Route::loadView(); ?>
+<h1><a href='<?= Route::homePage(); ?>'>Biblioteka</a></h1>
+<?php 
+    Route::loadView();
+?>
 </body>
 </html>
