@@ -3,7 +3,7 @@
 class AuthController extends Auth{
     public static function checkLoggedIn(){
         if(!isset($_SESSION['logged_in'])){
-            if(Route::$url == "user"){
+            if(Route::$url == "user" || Route::$url == "borrow"){
                 header("Location: ".Route::homePage()."/login");
             }
         }else{

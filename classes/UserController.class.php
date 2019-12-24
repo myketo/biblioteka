@@ -18,8 +18,7 @@ class UserController extends User{
 
     public function checkPenelty($return_date){
         $date = new DateTime(date("Y-m-d"));
-        // $return_date = new DateTime($return_date);
-        $return_date = new DateTime("2019-11-20");
+        $return_date = new DateTime($return_date);
         $diff = $return_date->diff($date)->format("%r%a");
 
         if($diff<0){
@@ -33,6 +32,4 @@ class UserController extends User{
 
         return $result;
     }
-
-
 }

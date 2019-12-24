@@ -16,4 +16,24 @@ class BooksView extends Books{
             <p>Dostępność: {$book['availability']}</p>";
         }
     }
+
+    public function borrowBookView($id){
+        $controller = new BooksController;
+        $book = $this->getBook($id);
+        if(!$book){ echo "Nie znaleziono książki w bazie."; return; }
+
+        echo "<h2>{$book[0]['title']}</h2>
+        <h3>{$book[0]['author']}</h3>";
+
+        if(!$book[0]['availability']){echo $controller->checkAvailability($book[0]); return;}
+
+        echo "<form method='POST'>
+        <label for='period'>Okres wypożyczenia: </label>
+        <select name='period'>
+            <option value='1'>1 miesiąc</option>
+            <option value='2'>2 miesiące</option>
+        </select>
+        <input type='submit' name='submitBorrow' value='Zarezerwuj'>
+        </form>";
+    }
 }

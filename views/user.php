@@ -3,7 +3,7 @@
     $controller->setUserData($_SESSION['logged_in']);
     echo $controller->name;
     echo "<br>";
-    echo "<a href='".Route::homePage()."/user/borrowed'>Wypożyczone</a>";
+    echo "<a href='".Route::homePage()."/user/borrowed'>Wypożyczone</a><br>";
     Route::loadUserView();
 ?>
 
