@@ -1,10 +1,10 @@
 # To-do
-- wypożyczanie książki
+- ~~wypożyczanie książki~~
 - zwrot książki
-~~- sprawdzanie dostępności książki~~
-~~- jakie książki wypożyczyłeś~~
-~~- czas na zwrot~~
-~~- kara za przetrzymanie (10gr/dzień) za każdą książkę~~
+- ~~sprawdzanie dostępności książki~~
+- ~~jakie książki wypożyczyłeś~~
+- ~~czas na zwrot~~
+- ~~kara za przetrzymanie (10gr/dzień) za każdą książkę~~
 
 # Tabele
 ## Książki
