@@ -4,8 +4,8 @@
     echo $controller->name;
     echo "<br>";
     echo "<a href='".Route::homePage()."/user/borrowed'>Wypożyczone</a><br>";
-    Route::loadUserView();
+    Route::loadSubView();
 ?>
 
 <form method='post'><input type='submit' name='unset' value='wyloguj'></form>
-<?php if(isset($_POST['unset'])){ unset($_SESSION['logged_in']);} ?>
+<?php if(isset($_POST['unset'])){ session_unset(); session_destroy(); } ?>

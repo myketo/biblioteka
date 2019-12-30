@@ -9,6 +9,7 @@ class BooksView extends Books{
         echo "Znalezione książki: <b>".count($books)."</b><br><br>";
         foreach($books as $book){
             $book['availability'] = $controller->checkAvailability($book);
+            if(isset($_SESSION['is_admin'])) echo "ID: ".$book['id'];
             echo "<p>Tytuł: {$book['title']}</p>
             <p>Autor: {$book['author']}</p>
             <p>Wydawnictwo: {$book['publisher']}</p>
@@ -35,5 +36,17 @@ class BooksView extends Books{
         </select>
         <input type='submit' name='submitBorrow' value='Zarezerwuj'>
         </form>";
+    }
+
+    public function returnBookView($id){
+        if(!$id){ echo "Nic nie wpisałeś!"; die(); }
+
+        $controller = new BooksController;
+        $penelty = $controller->returnBook($id);
+
+        if($penelty===NULL){ echo "Nie można zwrócić książki."; die(); }
+
+        echo "Zwrócono książkę.<br>";
+        if($penelty) echo "Kara za przetrzymanie wynosi: $penelty zł.";
     }
 }

@@ -2,6 +2,7 @@
 class Route{
     public static $validRoutes = ['search', 'login', 'borrow', 'user', 'admin'];
     public static $userValidRoutes = ['borrowed'];
+    public static $adminValidRoutes = ['addbook', 'adduser', 'returnbook'];
     public static $url;
     public static $act;
 
@@ -20,13 +21,17 @@ class Route{
         }
     }
 
-    public static function loadUserView(){
+    public static function loadSubView(){
         if(isset($_GET['act'])){
             $url = self::cleanUrl($_GET['act']);
             self::$act = $url;
 
             if(in_array($url, self::$userValidRoutes)){
                 include_once "views/user/$url.php";
+            }
+
+            if(isset($_SESSION['is_admin']) && in_array($url, self::$adminValidRoutes)){
+                include_once "views/admin/$url.php";
             }
         }
     }

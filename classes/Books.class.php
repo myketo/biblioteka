@@ -10,7 +10,7 @@ class Books extends Dbh{
         return $results;
     }
 
-    protected function getBorrowedBooks($id){
+    public function getBorrowedBooks($id){
         $sql = "SELECT * FROM users_books INNER JOIN users ON `users_books`.`users_id` = `users`.`id` INNER JOIN books ON `users_books`.`books_id` = `books`.`id` WHERE books_id = ?;";
         $stmt = $this->connect()->prepare($sql);
         $stmt->execute([$id]);
@@ -25,6 +25,16 @@ class Books extends Dbh{
         $stmt->execute([$user_id, $book_id, $return_date]);
 
         $sql = "UPDATE books SET `availability`=0 WHERE id = ?";
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute([$book_id]);
+    }
+
+    protected function deleteReturnBook($book_id){
+        $sql = "DELETE FROM users_books WHERE books_id = ?;";
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute([$book_id]);
+
+        $sql = "UPDATE books SET `availability`=1 WHERE id = ?";
         $stmt = $this->connect()->prepare($sql);
         $stmt->execute([$book_id]);
     }

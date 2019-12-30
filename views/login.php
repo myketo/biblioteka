@@ -6,7 +6,8 @@
 
 <?php
     if(isset($_POST['loginSubmit'])){
-        $auth = new AuthView;
-        $auth->loginUser($_POST['login'], $_POST['password']);
+        $auth = new AuthController;
+        $auth->checkUser($_POST['login'], $_POST['password']);
+        $auth->checkLoggedIn();
     }
 ?>

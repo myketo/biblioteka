@@ -21,9 +21,7 @@ class UserController extends User{
         $return_date = new DateTime($return_date);
         $diff = $return_date->diff($date)->format("%r%a");
 
-        if($diff<0){
-            return 0;
-        }
+        if($diff<0) return 0;
 
         $penelty = 10;
         

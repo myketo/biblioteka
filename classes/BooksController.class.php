@@ -1,9 +1,9 @@
 <?php 
 
 class BooksController extends Books{
-    public function findBook($input, $column){
-        if(empty($input) || $column !== "title" && $column !== "author") return;
-        $input = "%$input%";
+    public function findBook($input, $column="id"){
+        if(empty($input) || $column !== "title" && $column !== "author" && $column !== "id") return;
+        $input = $column=="id" ? $input : "%$input%";
         $results = $this->getBook($input, $column);
 
         return $results;
@@ -28,5 +28,17 @@ class BooksController extends Books{
         $this->setBorrowBook($book_id, $user_id, $return_date);
 
         echo "Pomyślnie zarezerwowano książkę.";
+    }
+
+    public function returnBook($book_id){
+         $book = $this->getBorrowedBooks($book_id);
+         if(!$book) return;
+
+         $this->deleteReturnBook($book_id);
+
+         $user = new UserController;
+         $penelty = $user->checkPenelty($book[0]['return_date']);
+
+         return $penelty;
     }
 }
