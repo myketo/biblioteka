@@ -14,7 +14,7 @@ class UserView extends User{
         echo "Wypożyczone książki: <b>".count($books)."</b><br>";
         foreach($books as $book){
             $book['penelty'] = $controller->checkPenelty($book['return_date']);
-            echo "<p>Książka: {$book['title']}</p>
+            echo "<p>Książka: {$book['title']} - {$book['author']}</p>
             <p>Data do zwrotu: {$book['return_date']}</p>
             <p>Kara za przetrzymanie: {$book['penelty']}zł.</p>";
         }

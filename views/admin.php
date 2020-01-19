@@ -1,6 +1,7 @@
 <h1>Admin Panel</h1>
 
 <a href='<?= Route::homePage() ?>/admin/returnbook'>Zwróć książkę</a>
+<a href='<?= Route::homePage() ?>/admin/addbook'>Dodaj książkę</a>
 <br>
 
 <?php

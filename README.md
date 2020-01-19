@@ -5,7 +5,7 @@
 - ~~czas na zwrot~~
 - ~~kara za przetrzymanie (10gr/dzień) za każdą książkę~~
 - dodawanie uzytkownikow (admin)
-- dodawanie ksiazek (admin)
+- ~~dodawanie ksiazek (admin)~~
 - ~~zwrot książki (admin)~~
 
 
@@ -30,4 +30,3 @@
 - ID książki
 - Identyfikator Użytkownicy
 - Data do zwrotu
-- Kara za przetrzymanie

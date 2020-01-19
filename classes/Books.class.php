@@ -38,4 +38,19 @@ class Books extends Dbh{
         $stmt = $this->connect()->prepare($sql);
         $stmt->execute([$book_id]);
     }
+
+    protected function checkExists($book){
+        $sql = "SELECT id FROM books WHERE title = ? AND author = ? AND publisher = ? AND release_year = ?;";
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute([$book['title'], $book['author'], $book['publisher'], $book['release_year']]);
+        
+        $result = $stmt->fetchAll();
+        return $result[0]['id'];
+    }
+
+    protected function setAddBook($book){
+        $sql = "INSERT INTO books(title, author, publisher, release_year) VALUES(?, ?, ?, ?);";
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute([$book['title'], $book['author'], $book['publisher'], $book['release_year']]);
+    }
 }

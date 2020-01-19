@@ -41,4 +41,24 @@ class BooksController extends Books{
 
          return $penelty;
     }
+
+    public function addBook($book){
+        if(empty($book['title']) || empty($book['author']) || empty($book['publisher']) || empty($book['release_year'])){
+            echo "Wszystkie pola są wymagane.";
+            return;
+        }
+
+        if(strlen($book['release_year']) != 4){
+            echo "Podaj prawidłowy rok.";
+            return;
+        }
+
+        if($id = $this->checkExists($book)){
+            echo "Taka książka znajduje się już w bibliotece. (id: {$id})";
+            return;
+        }
+
+        $this->setAddBook($book);
+        echo "Dodano książkę! (id: {$this->checkExists($book)})";
+    }
 }
