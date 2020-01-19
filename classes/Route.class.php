@@ -1,6 +1,6 @@
 <?php 
 class Route{
-    public static $validRoutes = ['search', 'login', 'borrow', 'user', 'admin'];
+    public static $validRoutes = ['search', 'login', 'activate', 'borrow', 'user', 'admin'];
     public static $userValidRoutes = ['borrowed'];
     public static $adminValidRoutes = ['addbook', 'adduser', 'returnbook'];
     public static $url;

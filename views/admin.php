@@ -2,6 +2,7 @@
 
 <a href='<?= Route::homePage() ?>/admin/returnbook'>Zwróć książkę</a>
 <a href='<?= Route::homePage() ?>/admin/addbook'>Dodaj książkę</a>
+<a href='<?= Route::homePage() ?>/admin/adduser'>Dodaj użytkownika</a>
 <br>
 
 <?php

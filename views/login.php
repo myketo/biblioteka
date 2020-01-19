@@ -4,6 +4,8 @@
     <input type='submit' name='loginSubmit' value='Zaloguj'>
 </form>
 
+<a href='<?= Route::homePage() ?>/activate'>Aktywuj konto</a>
+
 <?php
     if(isset($_POST['loginSubmit'])){
         $auth = new AuthController;

@@ -11,12 +11,17 @@
     <label for='address'>Adres: </label>
     <input type='text' name='address' id='address' placeholder='Adres'><br>
 
-    <input type='submit' name='addUserSubmit' value='Dodaj użytkownika'>
+    <input type='submit' name='checkUserSubmit' value='Dalej'>
 </form>
 
 <?php
-    if(isset($_POST['addUserSubmit'])){
+    if(isset($_POST['userPasswordSubmit'])){
         $user = new UserController;
-        $user->addUser($_POST);
+        $user->setPassword($_POST['password'], $_POST['password2'], $_SESSION['activate']);
+    }
+    
+    if(isset($_POST['checkUserSubmit']) || isset($_SESSION['activate'])){
+        $user = new UserView;
+        $user->activateAcc($_POST);
     }
 ?>

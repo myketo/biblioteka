@@ -4,7 +4,7 @@
 - ~~jakie książki wypożyczyłeś~~
 - ~~czas na zwrot~~
 - ~~kara za przetrzymanie (10gr/dzień) za każdą książkę~~
-- dodawanie uzytkownikow (admin)
+- ~~dodawanie uzytkownikow (admin)~~
 - ~~dodawanie ksiazek (admin)~~
 - ~~zwrot książki (admin)~~
 
