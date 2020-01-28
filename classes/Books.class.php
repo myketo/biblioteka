@@ -45,7 +45,9 @@ class Books extends Dbh{
         $stmt->execute([$book['title'], $book['author'], $book['publisher'], $book['release_year']]);
         
         $result = $stmt->fetchAll();
-        return $result[0]['id'];
+        if($result){
+            return $result[0]['id'];
+        }
     }
 
     protected function setAddBook($book){

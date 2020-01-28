@@ -23,10 +23,12 @@ class BooksView extends Books{
         $book = $this->getBook($id);
         if(!$book){ echo "Nie znaleziono książki w bazie."; return; }
 
-        echo "<h2>{$book[0]['title']}</h2>
-        <h3>{$book[0]['author']}</h3>";
+        echo "<div class='book_data'>
+        <h2 class='title'>{$book[0]['title']}</h2>
+        <h3 class='author'>{$book[0]['author']}</h3>";
 
         if(!$book[0]['availability']){echo $controller->checkAvailability($book[0]); return;}
+        echo "</div>";
 
         echo "<form method='POST'>
         <label for='period'>Okres wypożyczenia: </label>
@@ -39,12 +41,12 @@ class BooksView extends Books{
     }
 
     public function returnBookView($id){
-        if(!$id){ echo "Nic nie wpisałeś!"; die(); }
+        if(!$id){ echo "Nic nie wpisałeś!"; return; }
 
         $controller = new BooksController;
         $penelty = $controller->returnBook($id);
 
-        if($penelty===NULL){ echo "Nie można zwrócić książki."; die(); }
+        if($penelty===NULL){ echo "Nie można zwrócić książki."; return; }
 
         echo "Zwrócono książkę.<br>";
         if($penelty) echo "Kara za przetrzymanie wynosi: $penelty zł.";

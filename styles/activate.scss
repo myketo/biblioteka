@@ -1,0 +1,23 @@
+.activate{
+    form{
+        input{
+            margin-bottom: 7px;
+        }
+
+        input[type=submit]{
+            font-size: 16px;
+        }
+    }
+
+    .result{
+        p{
+            margin: 10px 0;
+
+            a{
+                color: blue;
+            }
+        }
+
+        margin: 40px 0;
+    }
+}

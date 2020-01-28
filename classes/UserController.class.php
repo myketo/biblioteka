@@ -63,7 +63,7 @@ class UserController extends User{
         }
 
         if(!$this->findUser($user)){
-            echo "Nie znaleziono użytkownika o podanych danych.";
+            echo "Użytkownik o tych danych nie istnieje lub aktywował już swoje konto.";
             return;
         }
 
@@ -90,6 +90,6 @@ class UserController extends User{
         $this->setUserPassword($id, $password);
 
         unset($_SESSION['activate']);
-        echo "Pomyślnie aktywowano konto! Możesz się <a href=".Route::homePage()."/login'>zalogować.</a>";
+        echo "<p>Pomyślnie aktywowano konto! Możesz się <a href=".Route::homePage()."/login'>zalogować.</a></p>";
     }
 }

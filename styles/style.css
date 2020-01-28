@@ -1,0 +1,125 @@
+* {
+  font-family: Arial;
+  color: black;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.base {
+  display: flex;
+  flex-direction: column;
+}
+.base header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 10vh;
+  border: 1px solid black;
+}
+.base header .banner a {
+  text-decoration: none;
+  font-size: 50px;
+}
+.base main {
+  height: 80vh;
+  border: 1px solid black;
+  padding: 10px;
+}
+.base main .page_name {
+  font-size: 30px;
+  margin-bottom: 40px;
+  text-decoration: underline;
+}
+.base footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 10vh;
+  border: 1px solid black;
+}
+
+.home a {
+  text-decoration: none;
+  border: 1px solid black;
+  padding: 3px;
+  border-radius: 7px;
+  margin-right: 10px;
+  font-size: 17px;
+}
+
+.search .search_form {
+  margin-bottom: 30px;
+}
+.search .result {
+  margin: 40px 0;
+}
+.search .result p {
+  margin: 10px 0;
+}
+.search .result p a {
+  color: blue;
+}
+
+.login form {
+  margin-bottom: 10px;
+}
+.login form input {
+  margin-bottom: 7px;
+}
+.login form input[type=submit] {
+  font-size: 16px;
+}
+.login .result {
+  margin: 40px 0;
+}
+.login .result p {
+  margin: 10px 0;
+}
+.login .result p a {
+  color: blue;
+}
+
+.activate form input {
+  margin-bottom: 7px;
+}
+.activate form input[type=submit] {
+  font-size: 16px;
+}
+.activate .result {
+  margin: 40px 0;
+}
+.activate .result p {
+  margin: 10px 0;
+}
+.activate .result p a {
+  color: blue;
+}
+
+.user p {
+  margin-bottom: 10px;
+}
+.user .user_data {
+  font-size: 18px;
+}
+.user .user_sub {
+  margin: 40px 0;
+}
+
+.borrow .book_data .title, .borrow .book_data .author {
+  margin-bottom: 10px;
+}
+
+.admin .navigation {
+  margin-bottom: 40px;
+}
+.admin .navigation a {
+  margin-right: 20px;
+}
+.admin .admin_sub {
+  margin-bottom: 40px;
+}
+.admin .admin_sub p {
+  margin-bottom: 20px;
+}
+
+/*# sourceMappingURL=style.css.map */

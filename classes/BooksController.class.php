@@ -11,8 +11,12 @@ class BooksController extends Books{
 
     public function checkAvailability($book){
         if($book['availability']){
-            $result = "Książka dostępna.
-            <a href='borrow?id={$book['id']}'>Zarezerwuj.</a>";
+            $result = "Książka dostępna.";
+            if(isset($_SESSION['logged_in'])){
+                $result.=" <a href='borrow?id={$book['id']}'>Zarezerwuj.</a>";
+            }else{
+                $result.=" <a href='".Route::homePage()."/login'>Zaloguj się</a> aby zarezerwować.</a>";
+            }
         }else{
             $borrowedBook = $this->getBorrowedBooks($book['id']);
             $result = "Książka wypożyczona do {$borrowedBook[0]['return_date']} przez {$borrowedBook[0]['users_id']}.";
@@ -27,7 +31,7 @@ class BooksController extends Books{
         $return_date = $date->format('Y-m-d');
         $this->setBorrowBook($book_id, $user_id, $return_date);
 
-        echo "Pomyślnie zarezerwowano książkę.";
+        echo "<p>Pomyślnie zarezerwowano książkę.</p>";
     }
 
     public function returnBook($book_id){
