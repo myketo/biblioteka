@@ -27,6 +27,6 @@ class AuthController extends Auth{
         }
 
         $_SESSION['logged_in'] = $user[0]['id'];
-        if($user[0]['is_admin']) $_SESSION['is_admin'] = 1;        
+        if($user[0]['is_admin']) $_SESSION['is_admin'] = 1;
     }
 }
